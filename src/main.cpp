@@ -1,8 +1,27 @@
 #include <iostream>
-using namespace std;
+#include <SFML/Window.hpp>
+#include <SFML/Graphics.hpp>
+#include <SFML/System.hpp>
+#include "player.hpp"
+using namespace sf;
+
 
 
 int main() {
-    cout << "Hello, World!" << endl;
+    sf::Clock clock;
+    Player player;
+    RenderWindow window(VideoMode({1200, 1000}), "Maze Hunter");
+    while (window.isOpen()){
+        float deltaTime = clock.restart().asSeconds();
+        window.clear(sf::Color::Black);
+        while (const auto event = window.pollEvent()){
+            if (event->is<sf::Event::Closed>()){
+               window.close();
+            }
+        }
+        player.movePlayer(player.getPosition(), deltaTime);
+        player.drawPlayer(window);
+        window.display();
+    }
     return 0;
 }

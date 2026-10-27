@@ -11,6 +11,7 @@ find_package(SFML 3 REQUIRED COMPONENTS Graphics Window System)
 add_executable(MazeHunter
     src/main.cpp
     src/Player.cpp
+    src/enemy.cpp
 )
 
 target_include_directories(MazeHunter PRIVATE include)

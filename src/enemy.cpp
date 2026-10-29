@@ -2,8 +2,9 @@
 #include <player.hpp>
 
 Enemy::Enemy(const Player& player): p1(player) {
-    position = sf::Vector2f(100.f, 200.f);
+    position = sf::Vector2f(100.f, 400.f);
     circle.setPosition(position);
+    circle.setOrigin({25.f, 25.f});
     circle.setFillColor(sf::Color::Red);
 }
 
@@ -22,13 +23,13 @@ void Enemy::handleEnemyInput(sf::Keyboard::Key key, sf::Sprite& enemySprite) {
 
 void Enemy::aiMove(float deltaTime) {
     sf::Vector2f playerPosition = p1.getPosition();
-    /*
-    sf::Vector2f direction(0.f, 0.f);
-    if (rand() % 2 == 0) {
-        direction.x = (rand() % 3 - 1); // -1, 0, or 1
-    } else {
-        direction.y = (rand() % 3 - 1); // -1, 0, or 1
+    sf::Vector2f diff = playerPosition - position;
+    setPosition(position + diff * speed * deltaTime / std::sqrt(diff.x * diff.x + diff.y * diff.y));
+}
+
+void Enemy::checkDefeat() {
+    if (p1.getPosition().x <= position.x + width && p1.getPosition().x + p1.getwidth() >= position.x - width &&
+        p1.getPosition().y <= position.y + height && p1.getPosition().y + p1.getheight() >= position.y - height) {
+        setDefeatedPlayer(true);
     }
-    moveEnemy(direction, deltaTime);
-    */
 }

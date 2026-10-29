@@ -21,6 +21,10 @@ int main() {
                window.close();
             }
         }
+        if(enemy.getDefeatedPlayer()) {
+            window.close();
+        }
+        enemy.aiMove(deltaTime);
         enemy.drawEnemy(window);
         player.movePlayer(player.getPosition(), deltaTime);
         player.drawPlayer(window);

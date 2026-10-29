@@ -2,11 +2,11 @@
 #include <string>  
 #include "player.hpp"
 
-Player::Player()
+Player::Player():playerTexture("../assets/PlayerProt0_1.png"), playerSprite(playerTexture)
 {
     position = sf::Vector2f(100.f, 100.f);
-    circle.setPosition(position);
-    circle.setFillColor(sf::Color::Green);
+    playerSprite.setPosition(position);
+    playerSprite.setColor(sf::Color::White);
 }
 
 void Player::movePlayer(sf::Vector2f direction,float deltaTime) {
@@ -49,8 +49,8 @@ void Player::handlePlayerInput(sf::Keyboard::Key key, sf::Sprite& playerSprite) 
     // Update player state, animations, etc.
 //}
 void Player::drawPlayer(sf::RenderWindow& window){//, sf::Sprite& playerSprite) {
-    circle.setPosition(position);
-    window.draw(circle);
+    playerSprite.setPosition(position);
+    window.draw(playerSprite);
 }
 
 //void handlePlayerCollision(sf::Sprite& playerSprite, const sf::FloatRect& obstacleBounds) {

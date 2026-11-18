@@ -12,7 +12,7 @@ int main() {
     sf::Clock clock;
     Player player;
     Enemy enemy(player);
-    RenderWindow window(VideoMode({1200, 1000}), "Maze Hunter");
+    RenderWindow window(VideoMode({896, 768}), "Maze Hunter");
     while (window.isOpen()){
         float deltaTime = clock.restart().asSeconds();
         window.clear(sf::Color::Black);

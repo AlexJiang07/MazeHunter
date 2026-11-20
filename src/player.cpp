@@ -6,6 +6,7 @@ Player::Player():playerTexture("../assets/PlayerProt0_1.png"), playerSprite(play
 {
     position = sf::Vector2f(100.f, 100.f);
     playerSprite.setPosition(position);
+    playerSprite.setOrigin({32.f, 32.f});
     playerSprite.setColor(sf::Color::White);
 }
 

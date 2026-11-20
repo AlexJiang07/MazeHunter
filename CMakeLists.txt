@@ -13,6 +13,7 @@ add_executable(MazeHunter
     src/Player.cpp
     src/enemy.cpp
     src/grid.cpp
+    src/levels.cpp
 )
 
 target_include_directories(MazeHunter PRIVATE include)

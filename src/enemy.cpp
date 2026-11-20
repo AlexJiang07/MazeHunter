@@ -4,7 +4,7 @@
 Enemy::Enemy(const Player& player): p1(player) {
     position = sf::Vector2f(100.f, 400.f);
     circle.setPosition(position);
-    circle.setOrigin({25.f, 25.f});
+    circle.setOrigin({16.f, 16.f});
     circle.setFillColor(sf::Color::Red);
 }
 
@@ -28,8 +28,8 @@ void Enemy::aiMove(float deltaTime) {
 }
 
 void Enemy::checkDefeat() {
-    if (p1.getPosition().x <= position.x + width && p1.getPosition().x + p1.getwidth() >= position.x - width &&
-        p1.getPosition().y <= position.y + height && p1.getPosition().y + p1.getheight() >= position.y - height) {
+    if (p1.getPosition().x - 32 <= position.x + width && p1.getPosition().x + 32  >= position.x - width &&
+        p1.getPosition().y - 32 <= position.y + height && p1.getPosition().y + 32 >= position.y - height) {
         setDefeatedPlayer(true);
     }
 }

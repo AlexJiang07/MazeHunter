@@ -20,8 +20,8 @@ private:
     bool defeatedPlayer = false;
     const Player& p1;
     sf::Vector2f position;
-    sf::CircleShape circle{25.f};
+    sf::CircleShape circle{16.f};
     float speed = 50.f;
-    float width = 25.f;
-    float height = 25.f;
+    float width = 16.f;
+    float height = 16.f;
 };
